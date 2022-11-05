@@ -53,7 +53,7 @@
                 method:"PATCH",
                 headers:{"Content-Type":"appliction/json"},
                 body:data
-            })
+            });
             fetch(req).then(function(response){
                 if(response["ok"]==true){
                     document.getElementById("updateName").innerText="更新成功";
