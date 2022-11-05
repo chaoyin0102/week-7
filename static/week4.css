@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+.header{
+    background-color:#6A7F85;
+    color:#DBDED7;
+    font-size:30px;
+    font-weight:bold;
+    text-align:center;
+    padding:10px;
+}
+
+.login{
+    color:#37474F;
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+    margin:15px;
+}
+
+.input{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:5px;
+}
+
+label{
+    color:#37474F;
+    margin-right:5px;
+}
+
+button{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:3px;
+    margin:10px;
+}
+
+/* member page */
+.welcome{
+    margin:20px;
+    font-size:20px;
+    font-weight:bold;
+    color:#37474F;
+    text-align:center;
+}
+a{
+    display:flex;
+    justify-content:center;
+    text-align:center;
+    color: rgb(46, 45, 45);
+    margin-top:10px;
+}
+.info{
+    margin:10px;
+    color:#37474F;
+    text-align:center;
+}
+
+/* error page */
+.message{
+    margin:20px;
+    font-size:20px;
+    font-weight:bold;
+    color:#37474F;
+    text-align:center;
+}
+
+/* square page */
+.square_result{
+    margin:20px;
+    font-size:20px;
+    font-weight:bold;
+    color:#37474F;
+    text-align:center;
+}
