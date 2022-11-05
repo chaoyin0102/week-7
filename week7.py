@@ -8,7 +8,7 @@ import os # for secret key
 mydb = {
     "host": "localhost",
     "user": "root",
-    "password": "an890147",
+    "password": "********",
     "database": "website",
     "buffered": True
 }
