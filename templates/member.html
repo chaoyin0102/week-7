@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="view-port" content="width=device-width, initial-scale=1.0">
+    <title>登入頁面</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='week4.css')}}">
+</head>
+<body>
+    <div class="header">歡迎光臨，這是會員頁</div>
+    <div class="welcome">{{ name }}，歡迎登入系統</div>
+    <br/>
+    <a href="/signout">登出系統</a>
+    <div class="welcome">查詢會員姓名</div>
+    <div class="input">
+        <input type="text" name="query_username" id="query_username">
+        <button onclick="query_user()">查詢</button>
+        <div class="info" id="showName"> 
+            <!--generate by js-->
+        </div>
+    </div>
+    <div class="welcome">更新我的姓名</div>
+    <div class="input">
+        <input type="text" name="new_name" id="new_name">
+        <button onclick="update_name()">查詢</button>
+        <div class="info" id="updateName">
+            <!--generate by js-->
+        </div>
+    </div>
+    <script>
+        //Request-2
+        function query_user(){
+            query_username=document.getElementById("query_username").value;
+            src="/api/member?username="+query_username;
+            fetch(src).then(function(response){
+                return response.json();
+            }).then(function(data){
+                if(data["data"]==null){
+                    document.getElementById("showName").innerText="查無此會員";
+                }
+                else{
+                    document.getElementById("showName").innerText=data["data"]["name"]+"("+data["data"]["username"]+")";
+                }
+            });
+        }
+
+        //Request-3
+        function update_name(){
+            new_name=document.getElementById("new_name").value;
+            src="/api/member?newname="+new_name;
+            let data='{"name":"'+newname+'"}';
+            const req=new Request(src,{
+                method:"PATCH",
+                headers:{"Content-Type":"appliction/json"},
+                body:data
+            })
+            fetch(req).then(function(response){
+                if(response["ok"]==true){
+                    document.getElementById("updateName").innerText="更新成功";
+                }
+                return response;
+            });
+        }
+    </script>
+</body>
+</html>
